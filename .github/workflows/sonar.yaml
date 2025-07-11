@@ -28,8 +28,8 @@ jobs:
  
       - name: Deploy to Tomcat
         run: |
-          WAR_FILE=target/train-ticket-reservation.war   # ← yaha actual war file ka naam likh
-          curl -v --upload-file "$WAR_FILE" \
-          --user "${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }}" \
-          "${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/myapp&update=true"     
-        
+         WAR_FILE=target/TrainBook-1.0.0-SNAPSHOT.war
+         curl -v --upload-file "$WAR_FILE" \
+         --user "${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }}" \
+          "${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/myapp&update=true"
+
