@@ -31,6 +31,7 @@ jobs:
             --user "${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }}" \
             "${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/myapp&update=true"
         working-directory: MyWebApp
+        
 
       
       
