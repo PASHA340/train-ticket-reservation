@@ -22,11 +22,14 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
-      
+
+      - name: List target folder
+        run: ls -l target
+ 
       - name: Deploy to Tomcat
         run: |
-          WAR_FILE=target/MyWebApp.war
+          WAR_FILE=target/train-ticket-reservation.war   # ← yaha actual war file ka naam likh
           curl -v --upload-file "$WAR_FILE" \
-            --user "${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }}" \
-            "${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/myapp&update=true"
+          --user "${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }}" \
+          "${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/myapp&update=true"     
         
